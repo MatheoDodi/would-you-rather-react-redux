@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
+import { CardContainer } from '../styles';
+import Typography from '@material-ui/core/Typography';
+import QuestionCard from './QuestionCard';
 
 class Home extends Component {
   componentDidMount() {
@@ -9,16 +12,11 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
+      <CardContainer>
         <ul>
-          {this.props.users 
-          ? this.props.users.map(user => {
-              return console.log(user);
-            })
-          : null
-          }
+          <QuestionCard />
         </ul>
-      </div>
+      </CardContainer>
     )
   }
 }

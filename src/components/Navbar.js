@@ -39,11 +39,11 @@ class Navbar extends Component {
               onClick={this.props.handleLogOut}>
                 Logout
             </Button>
-          : <Button color='secondary' variant='contained' style={{textTransform: 'none'}}>
-              <Link style={{textDecoration: 'none', color: 'white'}} to='/login'>
-                Login
+            : <Link style={{textDecoration: 'none', color: 'white'}} to='/login'>
+                <Button color='secondary' variant='contained' style={{textTransform: 'none'}}>
+                    Login
+                </Button>
               </Link>
-            </Button>
           }
         </Toolbar>
       </AppBar>

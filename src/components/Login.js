@@ -29,7 +29,7 @@ class Login extends Component {
 
   render() {
     if (this.props.authedUser) {
-      return <Redirect to='/home' />
+      return <Redirect to='/' />
     }
 
     return (

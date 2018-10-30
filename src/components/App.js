@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
 import { handleSaveQuestionAnswer } from '../actions/questions';
+import LoadingBar from 'react-redux-loading';
 import '../App.css';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import Navbar from './Navbar';
@@ -41,12 +42,13 @@ class App extends Component {
     return (
       <Router>
         <MuiThemeProvider theme={theme}>
+          <LoadingBar />
           <Navbar />
           {
             authedUser 
             ? <Fragment>
                 <Route exact path='/login' component={Login} />
-                <Route exact path='/home' component={Home} />
+                <Route exact path='/' component={Home} />
               </Fragment>
             : <Route exact path='/login' component={Login} />
           }
