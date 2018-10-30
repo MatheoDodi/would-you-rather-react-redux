@@ -43,13 +43,9 @@ const theme = createMuiTheme({
 
 class App extends Component {
   componentDidMount() {
-    this.props.dispatch(handleInitialData());
+    this.props.getInitialData();
     setTimeout(() => {
-      this.props.dispatch(handleSaveQuestionAnswer({
-        authedUser: 'tylermcginnis',
-        qid: 'am8ehyc8byjqgar0jgpub9',
-        answer: 'optionTwo'
-      }));
+      this.props.saveAnswer();
     }, 2000)
   }
 
@@ -67,4 +63,16 @@ class App extends Component {
   }
 }
 
-export default connect()(App);
+const mapDispatchToProps = (dispatch) => {
+  return({
+    getInitialData : () => dispatch(handleInitialData()),
+    saveAnswer: () => dispatch(handleSaveQuestionAnswer({
+      authedUser: 'tylermcginnis',
+      qid: 'am8ehyc8byjqgar0jgpub9',
+      answer: 'optionTwo'
+      
+    }))
+  })
+}
+
+export default connect(null, mapDispatchToProps)(App);
