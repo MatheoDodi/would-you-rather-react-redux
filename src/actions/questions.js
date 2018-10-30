@@ -1,8 +1,8 @@
 import { showLoading, hideLoading } from 'react-redux-loading';
 import { _saveQuestion, _saveQuestionAnswer, _getQuestions } from '../API/_DATA';
 
-const GET_QUESTIONS = 'GET_QUESTIONS';
-const SAVE_QUESTION = 'SAVE_QUESTION';
+export const GET_QUESTIONS = 'GET_QUESTIONS';
+export const SAVE_QUESTION = 'SAVE_QUESTION';
 
 export const getQuestions = (questions) => (
   {
@@ -19,7 +19,7 @@ export const saveQuestion = (question) => (
 );
 
 export const handleSaveQuestion = ({ optionOneText, optionTwoText, author }) => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
     dispatch(showLoading());
 
     return _saveQuestion({ optionOneText, optionTwoText, author })
@@ -28,7 +28,7 @@ export const handleSaveQuestion = ({ optionOneText, optionTwoText, author }) => 
         dispatch(hideLoading());
       })
       .catch(err => {
-        alert('There was an error while saving the question. Please try again.')
+        alert(err)
         dispatch(hideLoading());
       });
   }

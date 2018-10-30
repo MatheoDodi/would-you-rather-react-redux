@@ -1,8 +1,8 @@
 import { showLoading, hideLoading } from 'react-redux-loading';
 import {  _saveUser } from '../API/_DATA';
 
-const GET_USERS = 'GET_USERS';
-const SAVE_USER = 'SAVE_USER';
+export const GET_USERS = 'GET_USERS';
+export const SAVE_USER = 'SAVE_USER';
 
 export const getUsers = (users) => (
   {
