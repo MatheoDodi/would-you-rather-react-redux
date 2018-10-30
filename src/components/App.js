@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { _getUsers, _getQuestions } from '../API/_DATA';
+import { connect } from 'react-redux';
+import { handleInitialData } from '../actions/shared';
 import '../App.css';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import Navbar from './Navbar';
@@ -37,6 +38,9 @@ const theme = createMuiTheme({
 })
 
 class App extends Component {
+  // componentDidMount() {
+  //   this.props.dispatch(handleInitialData());
+  // }
 
   render() {
     return (
@@ -51,4 +55,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect()(App);
