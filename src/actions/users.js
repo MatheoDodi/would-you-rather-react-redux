@@ -1,5 +1,6 @@
 import { showLoading, hideLoading } from 'react-redux-loading';
 import {  _saveUser } from '../API/_DATA';
+import { setAuthedUser } from './authedUser';
 
 export const GET_USERS = 'GET_USERS';
 export const SAVE_USER = 'SAVE_USER';
@@ -24,6 +25,7 @@ export const handleSaveUser = (username, fullName, avatarURL) => {
     return _saveUser(username, fullName, avatarURL)
       .then(user => {
         dispatch(saveUser(user));
+        dispatch(setAuthedUser(username));
         dispatch(hideLoading());
       })
       .catch(err => {

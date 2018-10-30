@@ -359,6 +359,10 @@ textarea {
     resize: vertical;
 }
 
+html, body {
+    height: 100%;
+}
+
 .chromeframe {
     margin: 0.2em 0;
     background: #ccc;
@@ -374,4 +378,8 @@ textarea {
 
 .navLink:hover {
     color: rgb(236, 236, 236);
+}
+
+#root {
+    min-height: 100vh;
 }

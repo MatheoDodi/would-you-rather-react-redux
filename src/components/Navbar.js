@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { unsetAuthedUser } from '../actions/authedUser'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
@@ -27,15 +29,42 @@ class Navbar extends Component {
             </Link>
           </Typography>
           <Typography style={{marginLeft: 'auto', paddingRight: '2rem'}}>
-            Welcome Matthew
+            {this.props.authedUser ? `Welcome ${this.props.name}` : 'Welcome' }
           </Typography>
-          <Button color='secondary' variant='contained' style={{textTransform: 'none'}}>
-            Logout
-          </Button>
+          {this.props.authedUser
+          ? <Button
+              color='secondary'
+              variant='contained'
+              style={{textTransform: 'none'}}
+              onClick={this.props.handleLogOut}>
+                Logout
+            </Button>
+          : <Button color='secondary' variant='contained' style={{textTransform: 'none'}}>
+              <Link style={{textDecoration: 'none', color: 'white'}} to='/login'>
+                Login
+              </Link>
+            </Button>
+          }
         </Toolbar>
       </AppBar>
     )
   }
 }
 
-export default Navbar;
+const mapStateToProps = state => {
+  const name = state.users[state.authedUser] ? state.users[state.authedUser].name : ''
+
+  return {
+    authedUser : state.authedUser,
+    name
+  }
+}
+
+
+const mapDispatchToProps = dispatch => (
+  {
+    handleLogOut: () => dispatch(unsetAuthedUser())
+  }
+)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
