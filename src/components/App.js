@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LoadingBar from 'react-redux-loading'; 
 import { handleInitialData } from '../actions/shared';
-import { handleSaveQuestion } from '../actions/questions';
+import { handleSaveQuestionAnswer } from '../actions/questions';
 import { handleSaveUser } from '../actions/users';
 import { setAuthedUser } from '../actions/authedUser';
 import '../App.css';
@@ -45,7 +45,11 @@ class App extends Component {
   componentDidMount() {
     this.props.dispatch(handleInitialData());
     setTimeout(() => {
-      this.props.dispatch(setAuthedUser('matthewdodi'));
+      this.props.dispatch(handleSaveQuestionAnswer({
+        authedUser: 'tylermcginnis',
+        qid: 'am8ehyc8byjqgar0jgpub9',
+        answer: 'optionTwo'
+      }));
     }, 2000)
   }
 

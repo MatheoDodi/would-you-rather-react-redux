@@ -3,6 +3,7 @@ import { _saveQuestion, _saveQuestionAnswer, _getQuestions } from '../API/_DATA'
 
 export const GET_QUESTIONS = 'GET_QUESTIONS';
 export const SAVE_QUESTION = 'SAVE_QUESTION';
+export const SAVE_QUESTION_ANSWER = 'SAVE_QUESTION_ANSWER';
 
 export const getQuestions = (questions) => (
   {
@@ -34,17 +35,24 @@ export const handleSaveQuestion = ({ optionOneText, optionTwoText, author }) => 
   }
 }
 
+export const saveQuestionAnswer = ({ authedUser, qid, answer }) => (
+  {
+    type: SAVE_QUESTION_ANSWER,
+    authedUser,
+    qid,
+    answer
+  }
+);
+
 export const handleSaveQuestionAnswer = ({ authedUser, qid, answer }) => {
   return (dispatch) => {
     dispatch(showLoading());
 
     return _saveQuestionAnswer({ authedUser, qid, answer })
       .then(res => {
-        _getQuestions()
-          .then(questions => {
-            dispatch(getQuestions(questions));
-            dispatch(hideLoading());
-          })
+        dispatch(saveQuestionAnswer({ authedUser, qid, answer }));
+        dispatch(hideLoading());
       })
+      .catch(err => alert(err));
   }
 }

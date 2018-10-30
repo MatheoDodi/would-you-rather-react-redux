@@ -152,7 +152,7 @@ export function _saveUser(username, fullName, avatarURL ) {
   })
 }
 
-export function formatQuestion ({ optionOneText, optionTwoText, author }) {
+function formatQuestion ({ optionOneText, optionTwoText, author }) {
   return {
     id: generateUID(),
     timestamp: Date.now(),
