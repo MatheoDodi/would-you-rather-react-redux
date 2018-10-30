@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { _getUsers, _getQuestions } from '../API/_DATA';
 import '../App.css';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import Navbar from './Navbar';
@@ -21,6 +22,7 @@ const theme = createMuiTheme({
     text: '#FFFFFF',
   },
   typography: {
+    useNextVariants: true,
     fontFamily: 'roboto',
     fontSize: 12,
     htmlFontSize: 10
@@ -35,6 +37,7 @@ const theme = createMuiTheme({
 })
 
 class App extends Component {
+
   render() {
     return (
       <Router>

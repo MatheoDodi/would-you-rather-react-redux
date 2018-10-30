@@ -29,7 +29,7 @@ class Navbar extends Component {
           <Typography style={{marginLeft: 'auto', paddingRight: '2rem'}}>
             Welcome Matthew
           </Typography>
-          <Button color='secondary' variant='raised' style={{textTransform: 'none'}}>
+          <Button color='secondary' variant='contained' style={{textTransform: 'none'}}>
             Logout
           </Button>
         </Toolbar>
