@@ -22,7 +22,7 @@ class Questions extends Component {
     const authedUser = this.props.authedUser;
     const qid = this.props.match.params.question_id;
     const answer = this.state.selectedOption;
-    this.setState({ isAnswerd: true })
+    this.setState({ isAnswered: true })
     return this.props.handleSaveAnswer({authedUser, qid, answer})
   }
 

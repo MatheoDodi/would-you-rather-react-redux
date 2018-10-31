@@ -5,7 +5,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
-import { CheckBox } from '@material-ui/icons';
+import CheckBox from '@material-ui/icons/CheckBox'
 
 const QuestionContainer = styled.div`
   width: 50%;
@@ -23,7 +23,7 @@ const Grid = styled.div`
   grid-template-columns: 1fr auto auto;
   grid-row-gap: 2rem;
   grid-column-gap: 2rem;
-  align-items: center;
+  align-content: center;
 `
 
 class QuestionsAnswered extends Component {
@@ -34,7 +34,7 @@ class QuestionsAnswered extends Component {
             <CardHeader avatar={<Avatar src={this.props.avatar} />} subheader='Would You Rather' />
             <CardContent style={{borderTop: '1px solid gray'}}>
               <Grid>
-                <Typography>{this.props.optionOneText}</Typography><CheckBox /><span>1 / 3</span><span>65%</span>
+                <Typography style={{display: 'flex', alignContent: 'center'}}>{this.props.optionOneText}<CheckBox style={{color: 'green', marginLeft: '1rem'}} /></Typography><span>1 / 3</span><span>65%</span>
                 <Typography>{this.props.optionTwoText}</Typography><span>1 / 3</span><span>65%</span>
               </Grid>
             </CardContent>
