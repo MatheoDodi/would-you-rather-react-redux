@@ -27,10 +27,10 @@ class QuestionCard extends Component {
           <CardHeader subheader={<span style={{fontSize: '1rem'}}>{this.props.author} asked<br />{formatDate(this.props.date)}</span>} />
           <CardContent style={{ background: '#e3f2fd'}}>
             <Typography style={{padding: '1rem 0',}} variant='h6'>Would You Rather...</Typography>
-            <p style={{textAlign: 'center'}}>
+            <div style={{textAlign: 'center'}}>
               <Typography style={{color: 'transparent', textShadow: '0 0 14px rgba(0,0,0,0.5)'}} >{this.props.optionOne}</Typography>
               <Typography style={{color: 'transparent', textShadow: '0 0 14px rgba(0,0,0,0.5)'}} >{this.props.optionTwo}</Typography>
-            </p>
+            </div>
           </CardContent>
           <CardActions style={{display: 'flex', justifyContent: 'center'}}>
             <Link style={{textDecoration: 'none'}} to={`/question/${this.props.id}`}>
