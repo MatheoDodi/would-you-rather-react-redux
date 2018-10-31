@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { handleSaveQuestionAnswer } from '../actions/questions';
 import QuestionsUnAnswered from './QuestionsUnAnswered';
+import QuestionsAnswered from './QuestionsAnswered';
 
 
 class Questions extends Component {
@@ -33,7 +34,7 @@ class Questions extends Component {
     const optionTwoText = this.props.questions[qid].optionTwo.text;
 
       return (
-        this.state.isAnswered
+        !this.state.isAnswered
         ? <QuestionsUnAnswered
             avatar={avatar}
             optionOneText={optionOneText}
@@ -41,7 +42,10 @@ class Questions extends Component {
             submit={this.handleFormSubmit}
             change={this.handleOptionChange}
             selectedOption={this.state.selectedOption} />
-        : 'Hello'
+        : <QuestionsAnswered
+            avatar={avatar}
+            optionOneText={optionOneText}
+            optionTwoText={optionTwoText} />
       )
   }
 }

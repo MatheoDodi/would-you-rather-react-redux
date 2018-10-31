@@ -5,7 +5,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
+import { CheckBox } from '@material-ui/icons';
 
 const QuestionContainer = styled.div`
   width: 50%;
@@ -22,10 +22,11 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr auto auto;
   grid-row-gap: 2rem;
+  grid-column-gap: 2rem;
   align-items: center;
 `
 
-class QuestionsUnAnswered extends Component {
+class QuestionsAnswered extends Component {
   render() {
     return (
         <QuestionContainer>
@@ -33,8 +34,8 @@ class QuestionsUnAnswered extends Component {
             <CardHeader avatar={<Avatar src={this.props.avatar} />} subheader='Would You Rather' />
             <CardContent style={{borderTop: '1px solid gray'}}>
               <Grid>
-                <Typography>{this.props.optionOneText}</Typography>
-                <Typography>{this.props.optionTwoText}</Typography>
+                <Typography>{this.props.optionOneText}</Typography><CheckBox /><span>1 / 3</span><span>65%</span>
+                <Typography>{this.props.optionTwoText}</Typography><span>1 / 3</span><span>65%</span>
               </Grid>
             </CardContent>
           </Card>
@@ -43,4 +44,4 @@ class QuestionsUnAnswered extends Component {
   }
 };
 
-export default QuestionsUnAnswered;
+export default QuestionsAnswered;
