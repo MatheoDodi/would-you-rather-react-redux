@@ -9,6 +9,7 @@ import Home from './Home';
 import Login from './Login';
 import NeedLogin from './NeedLogin';
 import Questions from './Questions';
+import NewQuestion from './NewQuestion';
 
 const theme = createMuiTheme({
   palette: {
@@ -54,6 +55,7 @@ class App extends Component {
             : <Switch>
                 <Route exact path='/login' component={Login} />
                 <Route exact path='/' component={Home} />
+                <Route exact path='/add' component={NewQuestion} />
                 <Route path='/question/:question_id' component={Questions} />
               </Switch>
           }

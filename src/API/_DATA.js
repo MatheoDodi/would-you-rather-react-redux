@@ -137,9 +137,7 @@ export function _saveUser(username, fullName, avatarURL ) {
       id: username,
       name: fullName,
       avatarURL,
-      answers: { 
-        "am8ehyc8byjqgar0jgpub9": 'optionOne'
-       },
+      answers: {  },
       questions: [ ]
     }
 

@@ -37,7 +37,7 @@ class Login extends Component {
     return (
       <Fragment>
           <Form onSubmit={this.handleFormSubmit}> 
-            <Typography style={{margin: '2rem'}} variant='h4'>Would You Rather?</Typography>
+            <Typography style={{margin: '2rem', textAlign:'center'}} variant='h4'>Welcome To <br />Would You Rather?</Typography>
             <Typography variant='caption'>Please fill out your info bellow to start Playing</Typography>
             <TextField 
               style={{width: '100%'}}

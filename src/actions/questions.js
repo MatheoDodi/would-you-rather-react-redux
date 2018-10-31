@@ -48,9 +48,9 @@ export const handleSaveQuestionAnswer = ({ authedUser, qid, answer }) => {
   return (dispatch) => {
     dispatch(showLoading());
 
+    dispatch(saveQuestionAnswer({ authedUser, qid, answer }));
     return _saveQuestionAnswer({ authedUser, qid, answer })
       .then(res => {
-        dispatch(saveQuestionAnswer({ authedUser, qid, answer }));
         dispatch(hideLoading());
       })
       .catch(err => alert(err));

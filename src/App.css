@@ -383,3 +383,8 @@ html, body {
 #root {
     min-height: 100vh;
 }
+
+span {
+    font-family: 'roboto';
+    
+}

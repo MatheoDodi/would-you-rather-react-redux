@@ -6,7 +6,7 @@ import { Container } from '../styles';
 
 const NeedLogin = () => (
   <Container>
-    <Typography>
+    <Typography style={{marginBottom: '2rem'}} >
       Please Log In to Play!
     </Typography>
     <Link style={{textDecoration: 'none', color: 'white'}} to='/login'>

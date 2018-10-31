@@ -22,10 +22,10 @@ export const saveUser = (user) => (
 export const handleSaveUser = (username, fullName, avatarURL) => {
   return (dispatch) => {
     dispatch(showLoading());
+    dispatch(setAuthedUser(username));
     return _saveUser(username, fullName, avatarURL)
       .then(user => {
         dispatch(saveUser(user));
-        dispatch(setAuthedUser(username));
         dispatch(hideLoading());
       })
       .catch(err => {

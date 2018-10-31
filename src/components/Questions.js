@@ -45,7 +45,9 @@ class Questions extends Component {
         : <QuestionsAnswered
             avatar={avatar}
             optionOneText={optionOneText}
-            optionTwoText={optionTwoText} />
+            optionTwoText={optionTwoText}
+            answer={this.state.selectedOption}
+            qid={qid} />
       )
   }
 }
