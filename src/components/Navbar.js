@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 class Navbar extends Component {
   render() {
     return (
-      <AppBar position='static'>
+      <AppBar position='fixed'>
         <Toolbar >
           <Typography>
             <Link className='navLink' to ='/'>

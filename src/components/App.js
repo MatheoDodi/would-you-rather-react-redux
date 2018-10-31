@@ -1,14 +1,14 @@
 import React, { Component, Fragment } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { handleInitialData } from '../actions/shared';
-import { handleSaveQuestionAnswer } from '../actions/questions';
 import LoadingBar from 'react-redux-loading';
 import '../App.css';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import Navbar from './Navbar';
 import Home from './Home';
 import Login from './Login';
+import NeedLogin from './NeedLogin';
+import Questions from './Questions';
 
 const theme = createMuiTheme({
   palette: {
@@ -44,13 +44,18 @@ class App extends Component {
         <MuiThemeProvider theme={theme}>
           <LoadingBar />
           <Navbar />
-          {
-            authedUser 
-            ? <Fragment>
+          { 
+            !authedUser 
+            
+            ? <Switch>
+                <Route exact path='/login' component={Login} />
+                <Route component={NeedLogin} />
+              </Switch>
+            : <Switch>
                 <Route exact path='/login' component={Login} />
                 <Route exact path='/' component={Home} />
-              </Fragment>
-            : <Route exact path='/login' component={Login} />
+                <Route path='/question/:question_id' component={Questions} />
+              </Switch>
           }
         </MuiThemeProvider>
       </Router>
@@ -64,11 +69,4 @@ const mapStateToProps = state => (
   }
 )
 
-const mapDispatchToProps = dispatch => {
-  return({
-    getInitialData : () => dispatch(handleInitialData()),
-    saveAnswer: (answer) => dispatch(handleSaveQuestionAnswer(answer))
-  })
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);

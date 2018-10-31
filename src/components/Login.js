@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { handleSaveUser } from '../actions/users';
+import { handleInitialData } from '../actions/shared';
 import { Redirect } from 'react-router-dom'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -24,6 +25,7 @@ class Login extends Component {
     e.preventDefault();
     const { username, fullName, avatarURL } = this.state;
     this.props.handleLogin(username, fullName, avatarURL);
+    this.props.getInitialData();
   }
 
 
@@ -35,7 +37,8 @@ class Login extends Component {
     return (
       <Fragment>
           <Form onSubmit={this.handleFormSubmit}> 
-            <Typography style={{margin: '2rem'}} variant='h4'>Would You Rather</Typography>
+            <Typography style={{margin: '2rem'}} variant='h4'>Would You Rather?</Typography>
+            <Typography variant='caption'>Please fill out your info bellow to start Playing</Typography>
             <TextField 
               style={{width: '100%'}}
               label={<span style={{color: 'gray', fontSize: '1.1rem'}}>Userame</span>}
@@ -71,6 +74,7 @@ const mapStateToProps = state => (
 const mapDispatchToProps = dispatch => (
   {
     handleLogin: (username, fullName, URL) => dispatch(handleSaveUser(username, fullName, URL)),
+    getInitialData: () => dispatch(handleInitialData())
   }
 )
 

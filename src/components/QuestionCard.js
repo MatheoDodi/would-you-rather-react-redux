@@ -1,29 +1,41 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { formatDate } from '../utils/helpers';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import CardMedia from '@material-ui/core/CardMedia';
 
 const CardListItem = styled.div`
-  margin: 2rem;
-
+  margin: 3.5rem 2rem;
+  transition: all .2s;
+  &:hover {
+    transform: scale(1.00005);
+    box-shadow: 0 3px 10px 1px rgba(0,0,0,.15)
+  }
 `
 
 class QuestionCard extends Component {
+
   render() {
     return (
       <CardListItem>
         <Card>
-          <CardHeader subheader='User Asks' />
-          <CardContent style={{ background: '#FF9800', color: 'white'}}>
-            <Typography style={{padding: '2rem 0'}} variant='h5'>Would You Rather...</Typography>
+          <CardHeader subheader={<span style={{fontSize: '1rem'}}>{this.props.author} asked<br />{formatDate(this.props.date)}</span>} />
+          <CardContent style={{ background: '#e3f2fd'}}>
+            <Typography style={{padding: '1rem 0',}} variant='h6'>Would You Rather...</Typography>
+            <p style={{textAlign: 'center'}}>
+              <Typography style={{color: 'transparent', textShadow: '0 0 14px rgba(0,0,0,0.5)'}} >{this.props.optionOne}</Typography>
+              <Typography style={{color: 'transparent', textShadow: '0 0 14px rgba(0,0,0,0.5)'}} >{this.props.optionTwo}</Typography>
+            </p>
           </CardContent>
           <CardActions style={{display: 'flex', justifyContent: 'center'}}>
-            <Button style={{textTransform: 'none'}} variant='contained' color='primary'>View Question</Button>
+            <Link style={{textDecoration: 'none'}} to={`/question/${this.props.id}`}>
+              <Button style={{textTransform: 'none'}} variant='contained' color='secondary'>{this.props.isAnswered ? 'View Answer' : 'View Question' }</Button>
+            </Link>
           </CardActions>
         </Card>
       </CardListItem>

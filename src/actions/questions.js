@@ -1,5 +1,5 @@
 import { showLoading, hideLoading } from 'react-redux-loading';
-import { _saveQuestion, _saveQuestionAnswer, _getQuestions } from '../API/_DATA';
+import { _saveQuestion, _saveQuestionAnswer } from '../API/_DATA';
 
 export const GET_QUESTIONS = 'GET_QUESTIONS';
 export const SAVE_QUESTION = 'SAVE_QUESTION';
