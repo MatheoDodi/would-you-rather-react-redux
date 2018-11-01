@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
@@ -6,10 +6,8 @@ import Button from '@material-ui/core/Button';
 import { Container } from '../styles';
 import Login from './Login';
 
-class WrongPath extends Component {
-  render() {
-    return (
-      this.props.authedUser 
+const WrongPath = (props) => (
+      props.authedUser 
       ? <Container>
           <Typography style={{marginBottom: '2rem'}} >
             oops! Page doesn't exist!
@@ -22,8 +20,6 @@ class WrongPath extends Component {
         </Container>
       : <Login />
     )
-  }
-}
 
 const mapStateToProps = state => (
   {

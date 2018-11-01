@@ -1,6 +1,5 @@
 import { GET_USERS, SAVE_USER } from '../actions/users';
 import { SAVE_QUESTION, SAVE_QUESTION_ANSWER } from '../actions/questions';
-import { UNSET_AUTHED_USER } from '../actions/authedUser';
 
 export default function (state = {}, action) {
   switch ( action.type ) {
