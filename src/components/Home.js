@@ -4,6 +4,7 @@ import { handleInitialData } from '../actions/shared';
 import { CardContainer } from '../styles';
 import Button from '@material-ui/core/Button';
 import QuestionCard from './QuestionCard';
+import { Div } from '../styles'
 
 class Home extends Component {
   state = {
@@ -28,14 +29,18 @@ class Home extends Component {
 
     return (
       <CardContainer>
-        <div style={{display: 'flex', justifyContent: 'center'}}>
-          <Button onClick={(e) => this.handleSwitchQuestions(e, 'unanswered')} style={{textTransform: 'none', color: this.state.selected === 'unanswered' && '#03A9F4'}}>
-            Unanswered
+        <Div>
+          <Button 
+            onClick={(e) => this.handleSwitchQuestions(e, 'unanswered')}
+            style={{textTransform: 'none', color: this.state.selected === 'unanswered' && '#03A9F4'}}>
+              Unanswered
           </Button>
-          <Button onClick={(e) => this.handleSwitchQuestions(e, 'answered')} style={{textTransform: 'none', color: this.state.selected === 'answered' && '#03A9F4'}} >
-            Answered
+          <Button
+            onClick={(e) => this.handleSwitchQuestions(e, 'answered')}
+            style={{textTransform: 'none', color: this.state.selected === 'answered' && '#03A9F4'}} >
+              Answered
           </Button>
-        </div>
+        </Div>
         <ul>{displayedOption.map(qid => {
             const author = this.props.questions[qid].author;
             const date = this.props.questions[qid].timestamp;

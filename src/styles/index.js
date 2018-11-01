@@ -31,3 +31,17 @@ export const Container = styled.div`
   margin: 6.5rem auto;
   text-align: center;
 `
+
+export const Div = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
+export const CardListItem = styled.div`
+  margin: 3.5rem 2rem;
+  transition: all .2s;
+  &:hover {
+    transform: scale(1.00005);
+    box-shadow: 0 3px 10px 1px rgba(0,0,0,.15)
+  }
+`

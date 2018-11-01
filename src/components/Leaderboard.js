@@ -31,6 +31,7 @@ class Leaderboard extends Component {
           <TableBody>
             {sortedUsers.map(user => (
               <Row
+                key={user}
                 avatar={this.props.users[user].avatarURL}
                 name={this.props.users[user].name}
                 questions={this.props.users[user].questions.length}
