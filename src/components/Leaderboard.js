@@ -19,13 +19,13 @@ class Leaderboard extends Component {
     return (
       <Paper  style={{margin: '6.5rem auto', width: '80%'}}>
         <Table>
-          <TableHead style={{backgroundColor: '#03A9F4', color: 'white'}}>
+          <TableHead style={{backgroundColor: '#03A9F4'}}>
             <TableRow>
-              <TableCell>Avatar</TableCell>
-              <TableCell>User</TableCell>
-              <TableCell numeric>Asked</TableCell>
-              <TableCell numeric>Answered</TableCell>
-              <TableCell numeric>Total Points</TableCell>
+              <TableCell style={{color: '#FFFFFF'}}>Avatar</TableCell>
+              <TableCell style={{color: '#FFFFFF'}}>User</TableCell>
+              <TableCell style={{color: '#FFFFFF'}} numeric>Asked</TableCell>
+              <TableCell style={{color: '#FFFFFF'}} numeric>Answered</TableCell>
+              <TableCell style={{color: '#FFFFFF'}} numeric>Total Points</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

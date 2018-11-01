@@ -28,7 +28,7 @@ class Navbar extends Component {
               Leaderboard
             </Link>
           </Typography>
-          <Typography style={{marginLeft: 'auto', paddingRight: '2rem'}}>
+          <Typography style={{color: 'white', marginLeft: 'auto', paddingRight: '2rem'}}>
             {this.props.authedUser ? `Welcome ${this.props.name}` : 'Welcome' }
           </Typography>
           {this.props.authedUser
