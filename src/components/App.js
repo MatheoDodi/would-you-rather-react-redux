@@ -7,11 +7,11 @@ import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import Navbar from './Navbar';
 import Home from './Home';
 import Login from './Login';
-import NeedLogin from './NeedLogin';
 import Questions from './Questions';
 import NewQuestion from './NewQuestion';
 import QuestionAdded from './QuestionAdded';
 import Leaderboard from './Leaderboard';
+import WrongPath from './WrongPath';
 
 const theme = createMuiTheme({
   palette: {
@@ -56,16 +56,15 @@ class App extends Component {
             !authedUser 
             
             ? <Switch>
-                <Route exact path='/login' component={Login} />
-                <Route component={NeedLogin} />
+                <Route component={Login} />
               </Switch>
             : <Switch>
                 <Route exact path='/' component={Home} />
-                <Route exact path='/login' component={Login} />
                 <Route exact path='/add' component={NewQuestion} />
                 <Route exact path='/added' component={QuestionAdded} />
                 <Route exact path='/leaderboard' component={Leaderboard} />
                 <Route path='/question/:question_id' component={Questions} />
+                <Route component={WrongPath} />
               </Switch>
           }
         </MuiThemeProvider>

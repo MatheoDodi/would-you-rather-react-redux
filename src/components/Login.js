@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { handleSaveUser } from '../actions/users';
 import { handleInitialData } from '../actions/shared';
-import { Redirect } from 'react-router-dom'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -29,10 +28,6 @@ class Login extends Component {
 
 
   render() {
-    if (this.props.authedUser) {
-      return <Redirect to='/' />
-    }
-
     return (
       <Fragment>
           <Form onSubmit={this.handleFormSubmit}> 

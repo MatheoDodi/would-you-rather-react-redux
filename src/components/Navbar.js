@@ -19,12 +19,12 @@ class Navbar extends Component {
             </Link>
           </Typography>
           <Typography>
-            <Link className='navLink' to ='/add'>
+            <Link className='navLink' to ={this.props.authedUser ? '/add' : '/'}>
               New Question
             </Link>
           </Typography>
           <Typography>
-            <Link className='navLink' to ='/leaderboard'>
+            <Link className='navLink' to ={this.props.authedUser ? '/leaderboard' : '/'}>
               Leaderboard
             </Link>
           </Typography>
@@ -39,11 +39,7 @@ class Navbar extends Component {
               onClick={this.props.handleLogOut}>
                 Logout
             </Button>
-            : <Link style={{textDecoration: 'none', color: 'white'}} to='/login'>
-                <Button color='secondary' variant='contained' style={{textTransform: 'none'}}>
-                    Login
-                </Button>
-              </Link>
+            : null
           }
         </Toolbar>
       </AppBar>
