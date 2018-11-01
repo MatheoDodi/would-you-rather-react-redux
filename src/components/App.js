@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from 'react';
-import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LoadingBar from 'react-redux-loading';
 import '../App.css';
@@ -10,6 +10,8 @@ import Login from './Login';
 import NeedLogin from './NeedLogin';
 import Questions from './Questions';
 import NewQuestion from './NewQuestion';
+import QuestionAdded from './QuestionAdded';
+import Leaderboard from './Leaderboard';
 
 const theme = createMuiTheme({
   palette: {
@@ -53,9 +55,11 @@ class App extends Component {
                 <Route component={NeedLogin} />
               </Switch>
             : <Switch>
-                <Route exact path='/login' component={Login} />
                 <Route exact path='/' component={Home} />
+                <Route exact path='/login' component={Login} />
                 <Route exact path='/add' component={NewQuestion} />
+                <Route exact path='/added' component={QuestionAdded} />
+                <Route exact path='/leaderboard' component={Leaderboard} />
                 <Route path='/question/:question_id' component={Questions} />
               </Switch>
           }

@@ -19,11 +19,11 @@ export const saveUser = (user) => (
   }
 )
 
-export const handleSaveUser = (username, fullName, avatarURL) => {
+export const handleSaveUser = (username, fullName) => {
   return (dispatch) => {
     dispatch(showLoading());
     dispatch(setAuthedUser(username));
-    return _saveUser(username, fullName, avatarURL)
+    return _saveUser(username, fullName)
       .then(user => {
         dispatch(saveUser(user));
         dispatch(hideLoading());

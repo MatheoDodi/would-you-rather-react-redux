@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
@@ -8,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import CheckBox from '@material-ui/icons/CheckBox'
 import LinearProgress from '@material-ui/core/LinearProgress';
-import { stat } from 'fs';
+import { Link } from 'react-router-dom';
 
 const QuestionContainer = styled.div`
   width: 50%;
@@ -55,6 +56,11 @@ class QuestionsAnswered extends Component {
                 <LinearProgress variant='determinate' value={optionTwoPercent} />
                 <span>{`${optionTwoPercent}%`}</span>
                 <span>{`${optionTwoVotes} / ${totalVotes}`}</span>
+                <Link style={{textAlign: 'center', textDecoration: 'none', color: 'white', gridColumn: '1/-1'}} to='/'>
+                  <Button color='secondary' variant='outlined' style={{textTransform: 'none'}}>
+                    Go Back
+                  </Button>
+                </Link>
               </Grid>
             </CardContent>
           </Card>

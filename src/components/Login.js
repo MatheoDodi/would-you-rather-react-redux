@@ -13,7 +13,6 @@ class Login extends Component {
   state = {
     username : '',
     fullName: '',
-    avatarURL: ''
   }
 
   handleTextFieldChange = (e, label) => {
@@ -23,8 +22,8 @@ class Login extends Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    const { username, fullName, avatarURL } = this.state;
-    this.props.handleLogin(username, fullName, avatarURL);
+    const { username, fullName } = this.state;
+    this.props.handleLogin(username, fullName);
     this.props.getInitialData();
   }
 
@@ -38,23 +37,20 @@ class Login extends Component {
       <Fragment>
           <Form onSubmit={this.handleFormSubmit}> 
             <Typography style={{margin: '2rem', textAlign:'center'}} variant='h4'>Welcome To <br />Would You Rather?</Typography>
+            <Typography variant='caption'>select your character bellow</Typography>
             <Typography variant='caption'>Please fill out your info bellow to start Playing</Typography>
-            <TextField 
-              style={{width: '100%'}}
-              label={<span style={{color: 'gray', fontSize: '1.1rem'}}>Userame</span>}
-              value={this.state.username}
-              onChange={(e) => this.handleTextFieldChange(e, 'username')} />
             <TextField 
               style={{width: '100%'}}
               label={<span style={{color: 'gray', fontSize: '1.1rem'}}>Full Name</span>}
               value={this.state.fullName}
               onChange={(e) => this.handleTextFieldChange(e, 'fullName')} />
-            <TextField
+            <TextField 
               style={{width: '100%'}}
-              label={<span style={{color: 'gray', fontSize: '1.1rem'}}>Avatar URL</span>}
-              value={this.state.avatarURL}
-              onChange={(e) => this.handleTextFieldChange(e, 'avatarURL')} />
-            <Button 
+              label={<span style={{color: 'gray', fontSize: '1.1rem'}}>Userame</span>}
+              value={this.state.username}
+              onChange={(e) => this.handleTextFieldChange(e, 'username')} />
+            <Button
+              disabled={!this.state.username || !this.state.fullName} 
               style={{marginTop: '1rem'}}
               size='large' 
               color='secondary'
@@ -73,7 +69,7 @@ const mapStateToProps = state => (
 
 const mapDispatchToProps = dispatch => (
   {
-    handleLogin: (username, fullName, URL) => dispatch(handleSaveUser(username, fullName, URL)),
+    handleLogin: (username, fullName) => dispatch(handleSaveUser(username, fullName)),
     getInitialData: () => dispatch(handleInitialData())
   }
 )

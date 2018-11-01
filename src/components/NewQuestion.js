@@ -24,7 +24,7 @@ class NewQuestion extends Component {
     const author = this.props.authedUser;
 
     this.props.addQuestion({ optionOneText, optionTwoText, author });
-    this.props.history.push('/')
+    this.props.history.push('/added');
   }
 
   render() {

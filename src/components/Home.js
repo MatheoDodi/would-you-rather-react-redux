@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import { handleInitialData } from '../actions/shared';
 import { CardContainer } from '../styles';
 import Button from '@material-ui/core/Button';
@@ -8,7 +7,7 @@ import QuestionCard from './QuestionCard';
 
 class Home extends Component {
   state = {
-    selected: 'unanswerd'
+    selected: 'unanswered'
   }
 
   handleSwitchQuestions = (e, option) => {
@@ -16,7 +15,6 @@ class Home extends Component {
   }
 
   render() {
-    if (!this.props.authedUser) return <Redirect to='/login' />
     const unansweredQuestionsArray = Object.keys(this.props.questions)
     .filter(qid => !Object.keys(this.props.users[this.props.authedUser].answers).includes(qid))
     .sort((a, b) => this.props.questions[b].timestamp - this.props.questions[a].timestamp)
@@ -26,16 +24,16 @@ class Home extends Component {
     .sort((a, b) => this.props.questions[b].timestamp - this.props.questions[a].timestamp)
 
     let displayedOption = unansweredQuestionsArray;
-    this.state.selected === 'unanswerd' ? displayedOption = unansweredQuestionsArray : displayedOption = answeredQuestionsArray;
+    this.state.selected === 'unanswered' ? displayedOption = unansweredQuestionsArray : displayedOption = answeredQuestionsArray;
 
     return (
       <CardContainer>
         <div style={{display: 'flex', justifyContent: 'center'}}>
-          <Button onClick={(e) => this.handleSwitchQuestions(e, 'unanswerd')} style={{textTransform: 'none'}}>
-            UNANSWERED
+          <Button onClick={(e) => this.handleSwitchQuestions(e, 'unanswered')} style={{textTransform: 'none', color: this.state.selected === 'unanswered' && '#03A9F4'}}>
+            Unanswered
           </Button>
-          <Button onClick={(e) => this.handleSwitchQuestions(e, 'answered')} style={{textTransform: 'none'}} >
-            ANSWERED
+          <Button onClick={(e) => this.handleSwitchQuestions(e, 'answered')} style={{textTransform: 'none', color: this.state.selected === 'answered' && '#03A9F4'}} >
+            Answered
           </Button>
         </div>
         <ul>{displayedOption.map(qid => {
@@ -50,7 +48,7 @@ class Home extends Component {
                 date={date} 
                 optionOne={this.props.questions[qid].optionOne.text}
                 optionTwo={this.props.questions[qid].optionTwo.text}
-                isAnswered={this.state.selected === 'unanswerd' ? false : true}
+                isAnswered={this.state.selected === 'unanswered' ? false : true}
                 />
               )
           })}
