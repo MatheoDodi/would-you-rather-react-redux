@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { handleSaveQuestionAnswer } from '../actions/questions';
 import QuestionsUnAnswered from './QuestionsUnAnswered';
 import QuestionsAnswered from './QuestionsAnswered';
+import WrongPath from './WrongPath';
 
 
 class Questions extends Component {
@@ -28,6 +29,9 @@ class Questions extends Component {
 
   render() {
     const qid = this.props.match.params.question_id;
+    if (!this.props.questions[qid]) {
+      return <WrongPath />
+    }
     const author = this.props.questions[qid].author;
     const avatar = this.props.users[author].avatarURL;
     const optionOneText = this.props.questions[qid].optionOne.text;

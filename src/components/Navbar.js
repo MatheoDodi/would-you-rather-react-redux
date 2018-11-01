@@ -32,13 +32,15 @@ class Navbar extends Component {
             {this.props.authedUser ? `Welcome ${this.props.name}` : 'Welcome' }
           </Typography>
           {this.props.authedUser
-          ? <Button
-              color='secondary'
-              variant='contained'
-              style={{textTransform: 'none'}}
-              onClick={this.props.handleLogOut}>
-                Logout
-            </Button>
+          ?  <Link style={{textDecoration: 'none'}} to='/'>
+              <Button
+                color='secondary'
+                variant='contained'
+                style={{textTransform: 'none'}}
+                onClick={this.props.handleLogOut}>
+                  Logout
+              </Button>
+            </Link>
             : null
           }
         </Toolbar>

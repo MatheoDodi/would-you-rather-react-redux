@@ -147,7 +147,7 @@ export function _saveUser(username, fullName) {
         [username] : newUser
       }
 
-      res(newUser);
+      res();
     }, 500);
   })
 }

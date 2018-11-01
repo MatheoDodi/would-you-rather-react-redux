@@ -21,7 +21,7 @@ const QuestionCard = (props) => (
             </div>
           </CardContent>
           <CardActions style={{display: 'flex', justifyContent: 'center'}}>
-            <Link style={{textDecoration: 'none'}} to={`/question/${props.id}`}>
+            <Link style={{textDecoration: 'none'}} to={`/questions/${props.id}`}>
               <Button style={{textTransform: 'none'}} variant='contained' color='secondary'>{props.isAnswered ? 'View Answer' : 'View Question' }</Button>
             </Link>
           </CardActions>

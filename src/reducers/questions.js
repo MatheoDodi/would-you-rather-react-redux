@@ -24,8 +24,6 @@ export default function questions (state = {}, action) {
           }
         }
       }
-    case UNSET_AUTHED_USER :
-    return {}
     default : 
       return state;
   }

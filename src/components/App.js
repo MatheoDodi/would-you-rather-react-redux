@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { handleInitialData } from '../actions/shared';
 import LoadingBar from 'react-redux-loading';
 import '../App.css';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
@@ -43,6 +44,9 @@ const theme = createMuiTheme({
 })
 
 class App extends Component {
+  componentDidMount() {
+    this.props.dispatch(handleInitialData())
+  }
 
   render() {
     const { authedUser } = this.props;
@@ -63,7 +67,7 @@ class App extends Component {
                 <Route exact path='/add' component={NewQuestion} />
                 <Route exact path='/added' component={QuestionAdded} />
                 <Route exact path='/leaderboard' component={Leaderboard} />
-                <Route path='/question/:question_id' component={Questions} />
+                <Route path='/questions/:question_id' component={Questions} />
                 <Route component={WrongPath} />
               </Switch>
           }

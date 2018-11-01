@@ -23,7 +23,7 @@ class Login extends Component {
     e.preventDefault();
     const { username, fullName } = this.state;
     this.props.handleLogin(username, fullName);
-    this.props.getInitialData();
+    // this.props.getInitialData();
   }
 
 

@@ -35,8 +35,6 @@ export default function (state = {}, action) {
          }
        }
      }
-    case UNSET_AUTHED_USER : 
-     return {}
     default : 
       return state;
   }
