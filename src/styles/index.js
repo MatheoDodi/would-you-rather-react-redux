@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Form = styled.form`
-  padding: 3rem;
+  padding: 3.1rem;
   margin: 3rem auto;
   margin-top: 6.5rem;
   display: grid;
